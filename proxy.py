@@ -3,7 +3,23 @@ from bs4 import BeautifulSoup as BSHTML
 
 class FreeMyIp:
 
-    def get_proxies(self, ):
+    def __init__(self) -> None:
+        pass
+
+    def get_random_proxies(self):
+        random = []
+        call_1 = self.get_proxies()
+        random.append(call_1)
+        call_2 = self.get_socks_proxies()
+        random.append(call_2)
+        call_3 = self.get_us_proxies()
+        random.append(call_3)
+        call_4 = self.get_uk_proxies()
+        random.append(call_4)
+        random = random[0]
+        return random
+
+    def get_proxies(self):
         try:
             url = 'https://free-proxy-list.net/'
             session = requests.session()
@@ -24,7 +40,7 @@ class FreeMyIp:
         except:
             return False
     
-    def get_socks_proxies(self, ):
+    def get_socks_proxies(self):
         try:
             url = 'https://www.socks-proxy.net/'
             session = requests.session()
@@ -45,7 +61,7 @@ class FreeMyIp:
         except:
             return False
 
-    def get_us_proxies(self, ):
+    def get_us_proxies(self):
         try:
             url = 'https://www.us-proxy.org/'
             session = requests.session()
@@ -66,7 +82,7 @@ class FreeMyIp:
         except:
             return False
 
-    def get_uk_proxies(self, ):
+    def get_uk_proxies(self):
         try:
             url = 'https://free-proxy-list.net/uk-proxy.html'
             session = requests.session()
@@ -86,3 +102,5 @@ class FreeMyIp:
                 return proxies
         except:
             return False
+
+
